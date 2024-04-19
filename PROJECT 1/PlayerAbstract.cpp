@@ -1,5 +1,7 @@
 #include "PlayerAbstract.h"
 
+#include <iostream>
+
 
 PlayerAbstract::PlayerAbstract(
 	const std::string id,

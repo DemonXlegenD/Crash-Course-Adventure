@@ -2,7 +2,6 @@
 #include "PlayerAbstract.h"
 #include "Team.h"
 #include <vector>
-#include "./Utils/QuickSort.h"
 
 class GameConfig
 {

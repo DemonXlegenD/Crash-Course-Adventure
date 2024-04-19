@@ -1,6 +1,0 @@
-    "pvMax": 100,
-    "attackMax": 50,
-    "attack": 30,
-    "defenseMax": 40,
-    "defense": 25,
-    "manaMax": 80

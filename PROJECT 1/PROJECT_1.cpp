@@ -9,7 +9,6 @@
 #include <iomanip>
 
 #include "PlayerAbstract.h"
-#include "./Player/PlayerWizard.h"
 #include "GameLoop.h"
 #include "GameConfig.h"
 #include "Team.h"
@@ -108,7 +107,7 @@ int main()
 
 	std::cout << std::endl;
 	std::this_thread::sleep_for(std::chrono::seconds(3));
-	loading(5);
+	loading(3);
 	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_INTENSITY); // Change la couleur du texte en bleu vif
 
 	int numberPlayer = GameLoop::askNumberPlayer();
@@ -117,7 +116,7 @@ int main()
 	
 	std::vector<Team> teams;
 	for (int i = 0; i < numberTeams; i++) {
-		loading(2);
+		loading(3);
 		std::string name(GameLoop::askNameTeam("Team " + std::to_string(i + 1)));
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 		std::vector<PlayerAbstract> playersTeam;
@@ -126,17 +125,19 @@ int main()
 			std::string name(GameLoop::askName("Joueur " + std::to_string((j + 1) * (i + 1))));
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 			PlayerAbstract player(GameLoop::askType("Joueur " + std::to_string((j + 1) * (i + 1)), name));
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			system("cls");
 			playersTeam.push_back(player);
 			players.push_back(player);
-			std::this_thread::sleep_for(std::chrono::seconds(1));
+
 			playersTeam[j].afficherInfos();
-			std::this_thread::sleep_for(std::chrono::seconds(1));
+			std::this_thread::sleep_for(std::chrono::seconds(2));
 		}
 		teams.push_back(Team(name, playersTeam));
 	}
 
-
-	loading(5);
+	system("cls");
+	loading(3);
 
 
 	GameConfig config(teams[0], teams[1], players);
@@ -150,7 +151,7 @@ int main()
 
 	players[0].addSpellToList();
 	players[1].addSpellToList();
-	int playerNumberTurn = 0;
+
 	std::string winner;
 	std::string loser;
 
@@ -256,14 +257,5 @@ int main()
 		}
 		GameLoop::winOrLose(loser, winner);
 	} while (GameLoop::startAgain());
-
-
-
-
-
-
-	int actionTurn = 0;
-
-
 	return 0;
 }

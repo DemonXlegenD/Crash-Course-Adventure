@@ -1,20 +1,9 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
 #include <string>
-#include <map>
 #include "PlayerAbstract.h"
 #include <vector>
-#include <thread>
-#include <chrono>
 #include "./Spell.h"
-#include "./Player/PlayerWizard.h"
-#include "./Player/PlayerGuardian.h"
-#include "./Player/PlayerKnight.h"
-#include "./Player/PlayerWarrior.h"
-
 struct TypeCombattantClass {
 	std::string name;
 	PlayerAbstract type;

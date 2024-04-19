@@ -1,5 +1,16 @@
 #include "GameLoop.h"
 
+#include <chrono>
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <thread>
+
+#include "Player/PlayerGuardian.h"
+#include "Player/PlayerKnight.h"
+#include "Player/PlayerWarrior.h"
+#include "Player/PlayerWizard.h"
+
 GameLoop::GameLoop() {}
 
 
@@ -115,7 +126,6 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 				/*1H Merci Victor*/
 			}
 		}
-		std::cout << personnages["wizard"]["pvMax"];
 
 		std::string wizard("wizard");
 		if (personnages.find(wizard) != personnages.end()) {
@@ -127,7 +137,6 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 				int defense = attributs["defense"];
 				int manaMax = attributs["manaMax"];
 
-				std::cout << "pvmax" << pvMax;
 
 				combattants.push_back(new TypeCombattantClass{ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
 
@@ -179,6 +188,7 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 
 			
 		}
+		fichier.close();
 		do {
 			std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
 			int index = 1;
@@ -191,8 +201,6 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 			index = 1;
 			for (const TypeCombattantClass* combattant : combattants) {
 				if (chosenType == combattant->name || chosenType == std::to_string(index)) {
-					std::this_thread::sleep_for(std::chrono::seconds(1));
-					system("cls");
 					return combattant->type;
 				}
 				index++;
@@ -202,9 +210,6 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			system("cls");
 		} while (true);
-		std::this_thread::sleep_for(std::chrono::seconds(2));
-		system("cls");
-		fichier.close();
 	}
 	else {
 		std::cerr << "Impossible d'ouvrir le fichier " << classFile << std::endl;

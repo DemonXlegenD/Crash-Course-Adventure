@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 #include "../PlayerAbstract.h"
 
 class PlayerWizard : public PlayerAbstract

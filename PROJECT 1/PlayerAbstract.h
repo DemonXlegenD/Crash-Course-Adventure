@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include <string>
 #include "Spell.h"
 #include <vector>
@@ -65,10 +64,10 @@ public:
 
 
 	virtual void addSpellToList() {
-			Spell spellOffensif("offensive", "yayaya", attack, 0);
-			Spell spellDefensif("defensive", "yoyoyo", defense, 0);
-			Spell spellBuff("buff", "yiyiyi", attack, 0);
-			Spell spellUltimate("ultimate", "yuyuyu", 2, 0);
+			Spell spellOffensif("offensive", "Attack", attack, 0);	
+			Spell spellDefensif("defensive", "Protect", defense, 0);
+			Spell spellBuff("buff", "Boost", attack, 0);
+			Spell spellUltimate("ultimate", "Ultimate", 2, 0);
 			spellList.push_back(spellOffensif);
 			spellList.push_back(spellDefensif);
 			spellList.push_back(spellBuff);

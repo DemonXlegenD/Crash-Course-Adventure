@@ -1,5 +1,9 @@
 #include "Loading.h"
 
+#include <iostream>
+#include <string>
+#include <Windows.h>
+
 void loading(int rep = 5) {
 	std::string loadingPoints = ". . .";
 	for (int i = 0; i < rep; i++) {
