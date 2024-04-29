@@ -17,8 +17,4 @@ Ce programme en C++ implémente un jeu de combat en console où deux joueurs s'a
 1. Clonez ce dépôt sur votre machine locale.
 2. Assurez-vous d'avoir un compilateur C++ installé sur votre machine. Si ce n'est pas le cas, vous pouvez installer un compilateur tel que g++ pour Unix/Linux ou MinGW pour Windows.
 3. Naviguez vers le répertoire contenant le fichier source du jeu.
-4. Compilez le programme en exécutant la commande suivante dans votre terminal :
-   ```bash
-   g++ -o jeu_combat jeu_combat.cpp
-   ```
-ou bien avec visual studio
+4. Compilez le programme
